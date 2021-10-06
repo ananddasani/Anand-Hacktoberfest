@@ -11,24 +11,32 @@ public class BMI {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("\nenter your weight in KG :: ");
+        System.out.print("\nEnter your weight in KG :: ");
         float weight = sc.nextFloat();
 
-        System.out.print("\nenter your height in M:: ");
-        float hig = sc.nextFloat();
+        System.out.print("\nEnter your height in M:: ");
+        float height = sc.nextFloat();
 
-        float BMI = (weight / (hig * hig));
-        System.out.println(BMI);
-
+        float BMI = this.calculateBMI(weight, height);
+        System.out.println("Your BMI is: " + BMI);
+        
+        System.out.println("You are " + this.evaluateBMI(BMI));
+    }
+    
+    public float calculateBMI(float weight, float height) {
+        return (weight / (hig * hig));
+    }
+    
+    public String evaluateBMI(float BMI) {
         if (BMI < 18.5)
-            System.out.println("underweight");
-
-        else if (BMI < 25)
-            System.out.println("normal");
-
-        else if (BMI < 30)
-            System.out.println("overweight");
-        else
-            System.out.println("obese");
+            return "underweight";
+        
+        if (BMI < 25)
+            return "normal weight";
+        
+        if (BMI < 30)
+            return "overweight";
+        
+        return "obese";
     }
 }
